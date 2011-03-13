@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>停電時間帯検索</title>
+    <title>停電時間帯検索 (非公式)</title>
   </head>
   <body>
+    <h1>停電時間帯検索 (非公式)</h1>
+
+    <div id="prefs">
+      <h2>都道府県を選択してください</h2>
+      <ul class="selection">
+      </ul>
+    </div>
+
+    <div id="cities">
+      <h2>市区町村を選択してください</h2>
+      <ul class="selection">
+      </ul>
+    </div>
+
+    <div id="result">
+      <h2><span id="selected_area">選択した地域</span>は<span id="slot">停電する時間帯</span>のうちの3時間停電するみたいです</h2>
+    </div>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="timings.js"></script>
