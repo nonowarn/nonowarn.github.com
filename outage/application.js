@@ -19,29 +19,32 @@ jQuery(function($) {
       $group = $("#group"),
       $slot = $("#slot");
 
-  var timingsInPref, timingsInCity, selectedArea;
-
-  for (var pref in Timings) {
-    $prefSelector.append("<li><a href='javascript:void(0);'>" + pref + "</a></li>");
-  }
-
   function init() {
-    timingsInPref = {};
-    selectedArea = "";
-    $prefs.show(); $towns.hide(); $cities.hide(); $result.hide();
+    showPrefs();
   }
 
   function makeSelector($container, cb) {
     return $container.delegate('a', 'click', cb);
   }
 
+  function showPrefs() {
+    timings = Timings;
+    selectedArea = "";
+
+    for (var pref in timings) {
+      $prefSelector.append("<li><a href='javascript:void(0);'>" + pref + "</a></li>");
+    }
+
+    $prefs.show(); $towns.hide(); $cities.hide(); $result.hide();
+  }
+
   function showCities() {
     var pref = $(this).text();
 
-    timingsInPref = Timings[pref];
+    timings = timings[pref];
     selectedArea = pref;
     $citySelector.find("li").remove();
-    for (var city in timingsInPref) {
+    for (var city in timings) {
       $citySelector.append("<li><a href='javascript:void(0)'>" + city + "</a></li>");
     }
     $prefs.hide(); $towns.hide(); $cities.show(); $result.hide();
@@ -50,10 +53,10 @@ jQuery(function($) {
   function showTowns() {
     var city = $(this).text();
 
-    timingsInCity = timingsInPref[city];
+    timings = timings[city];
     selectedArea += city;
     $townSelector.find("li").remove();
-    for (var town in timingsInCity) {
+    for (var town in timings) {
       $townSelector.append("<li><a href='javascript:void(0)'>" + town + "</a></li>");
     }
     $prefs.hide(); $towns.show(); $cities.hide(); $result.hide();
@@ -61,7 +64,7 @@ jQuery(function($) {
 
   function showResult() {
     var town = $(this).text();
-        group = timingsInCity[town];
+        group = timings[town];
     selectedArea += town;
     $selectedArea.text(selectedArea);
     $group.text(group);
