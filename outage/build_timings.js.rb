@@ -2,10 +2,11 @@ require 'json'
 
 timings = {}
 
-IO.readlines("timings.txt").each do |line|
-  pref, city, zone = line.chomp.split(/,/)
+IO.readlines("timings.csv").each do |line|
+  pref, city, town, zone = line.chomp.split(/,/)
   timings[pref] ||= {}
-  timings[pref][city] = zone
+  timings[pref][city] ||= {}
+  timings[pref][city][town] = zone
 end
 
 print "var Timings = "

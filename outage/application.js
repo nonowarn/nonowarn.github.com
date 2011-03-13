@@ -9,15 +9,17 @@ jQuery(function($) {
 
   var $prefs = $("#prefs"),
       $cities = $("#cities"),
+      $towns = $("#towns"),
       $result = $("#result");
 
   var $prefSelector = $("#prefs .selection").delegate('a', 'click', showCities),
-      $citySelector = $("#cities .selection").delegate('a', 'click', showResult),
+      $citySelector = $("#cities .selection").delegate('a', 'click', showTowns),
+      $townSelector = $("#towns .selection").delegate('a', 'click', showResult),
       $selectedArea = $("#selected_area"),
       $group = $("#group"),
       $slot = $("#slot");
 
-  var timingsInPref, selectedArea;
+  var timingsInPref, timingsInCity, selectedArea;
 
   for (var pref in Timings) {
     $prefSelector.append("<li><a href='javascript:void(0);'>" + pref + "</a></li>");
@@ -26,7 +28,7 @@ jQuery(function($) {
   function init() {
     timingsInPref = {};
     selectedArea = "";
-    $prefs.show(); $cities.hide(); $result.hide();
+    $prefs.show(); $towns.hide(); $cities.hide(); $result.hide();
   }
 
   function showCities() {
@@ -38,17 +40,29 @@ jQuery(function($) {
     for (var city in timingsInPref) {
       $citySelector.append("<li><a href='javascript:void(0)'>" + city + "</a></li>");
     }
-    $prefs.hide(); $cities.show(); $result.hide();
+    $prefs.hide(); $towns.hide(); $cities.show(); $result.hide();
+  }
+
+  function showTowns() {
+    var city = $(this).text();
+
+    timingsInCity = timingsInPref[city];
+    selectedArea += city;
+    $townSelector.find("li").remove();
+    for (var town in timingsInCity) {
+      $townSelector.append("<li><a href='javascript:void(0)'>" + town + "</a></li>");
+    }
+    $prefs.hide(); $towns.show(); $cities.hide(); $result.hide();
   }
 
   function showResult() {
-    var city = $(this).text();
-        group = timingsInPref[city];
-    selectedArea += city;
+    var town = $(this).text();
+        group = timingsInCity[town];
+    selectedArea += town;
     $selectedArea.text(selectedArea);
     $group.text(group);
     $slot.text(Slot[group]);
-    $prefs.hide(); $cities.hide(); $result.show();
+    $prefs.hide(); $towns.hide(); $cities.hide(); $result.show();
   }
 
   init();
