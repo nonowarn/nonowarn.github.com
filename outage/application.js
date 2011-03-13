@@ -12,9 +12,9 @@ jQuery(function($) {
       $towns = $("#towns"),
       $result = $("#result");
 
-  var $prefSelector = $("#prefs .selection").delegate('a', 'click', showCities),
-      $citySelector = $("#cities .selection").delegate('a', 'click', showTowns),
-      $townSelector = $("#towns .selection").delegate('a', 'click', showResult),
+  var $prefSelector = makeSelector($("#prefs .selection"), showCities),
+      $citySelector = makeSelector($("#cities .selection"), showTowns),
+      $townSelector = makeSelector($("#towns .selection"), showResult),
       $selectedArea = $("#selected_area"),
       $group = $("#group"),
       $slot = $("#slot");
@@ -29,6 +29,10 @@ jQuery(function($) {
     timingsInPref = {};
     selectedArea = "";
     $prefs.show(); $towns.hide(); $cities.hide(); $result.hide();
+  }
+
+  function makeSelector($container, cb) {
+    return $container.delegate('a', 'click', cb);
   }
 
   function showCities() {
