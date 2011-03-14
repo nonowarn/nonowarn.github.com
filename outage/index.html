@@ -7,6 +7,14 @@
       .hidden {
         display: none;
       }
+
+      #pagination span, #pagination a {
+        border: 1px solid black;
+        margin: 0 5px;
+        padding: 3px;
+        font-size: 50%;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
@@ -32,7 +40,10 @@
       </tr>
     </table>
 
+    <div id="pagination"></div>
+
     <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.pagination.js"></script>
     <script type="text/javascript" src="timings.js" charset="UTF-8"></script>
     <script type="text/javascript" src="application.js"></script>
   </body>
