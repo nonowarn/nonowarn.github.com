@@ -41,7 +41,10 @@ jQuery(function($) {
   function initPagination() {
     $pagination.pagination(found.length, {
       items_per_page: itemsPerPage,
-      callback: updateTimings
+      callback: updateTimings,
+      num_display_entries: 0,
+      next_text: "結果の続きを見る",
+      prev_text: "さっきの結果に戻る"
     });
     $("#pagination").trigger('setPage', [0]);
   }
