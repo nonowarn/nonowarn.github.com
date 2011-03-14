@@ -3,40 +3,36 @@
   <head>
     <title>停電時間帯検索 (非公式)</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css" media="screen">
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1>停電時間帯検索 (非公式)</h1>
     <p>
-      <a href="http://cid-c5f086938c6e0aab.office.live.com/view.aspx/Japan311/Tepco%5E_Blackout%5E_List%5E_20110314.xlsx?wa=wsignin1.0">このデータ</a>を基にしています。正確な情報については<a href="http://www.tepco.co.jp">http://www.tepco.co.jp</a>を参照してください。再検索するときはリロードしてください；；
+      <a href="http://cid-c5f086938c6e0aab.office.live.com/view.aspx/Japan311/Tepco%5E_Blackout%5E_List%5E_20110314.xlsx?wa=wsignin1.0">このデータ</a>を基にしています。正確な情報については<a href="http://www.tepco.co.jp">http://www.tepco.co.jp</a>を参照してください。
     </p>
 
     <p>
       もし何かあれば、nonowarn at gmail dot com までお願いします。
     </p>
 
-    <div id="prefs">
-      <h2>都県を選択してください</h2>
-      <ul class="selection">
-      </ul>
-    </div>
+    <form id="search">
+      <label for="q">あなたの住所の一部 (例: 水戸)</label>
+      <input type="text" name="q"></input>
+      <input type="submit" value="検索"></input>
+    </form>
 
-    <div id="cities">
-      <h2>市区群を選択してください</h2>
-      <ul class="selection">
-      </ul>
-    </div>
+    <table id="timings">
+      <tr>
+        <th>地区</th>
+        <th>停電する時間帯</th>
+      </tr>
+    </table>
 
-    <div id="towns">
-      <h2>町名を選択してください</h2>
-      <ul class="selection">
-      </ul>
-    </div>
-
-    <div id="result">
-      <h2><span id="selected_area">選択した地域</span>は<span id="slot">停電する時間帯</span>のうちの3時間停電するみたいです</h2>
-    </div>
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="timings.js" charset="UTF-8"></script>
     <script type="text/javascript" src="application.js"></script>
   </body>

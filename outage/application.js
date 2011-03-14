@@ -7,69 +7,32 @@ jQuery(function($) {
     5: "15:20～19:00"
   };
 
-  var $prefs = $("#prefs"),
-      $cities = $("#cities"),
-      $towns = $("#towns"),
-      $result = $("#result");
-
-  var $prefSelector = makeSelector($("#prefs .selection"), showCities),
-      $citySelector = makeSelector($("#cities .selection"), showTowns),
-      $townSelector = makeSelector($("#towns .selection"), showResult),
-      $selectedArea = $("#selected_area"),
-      $group = $("#group"),
-      $slot = $("#slot");
+  var $timingTable = $("#timings"),
+      timingTableDom = $timingTable.get(0),
+      $search = $("#search").submit(filterRow);
 
   function init() {
-    showPrefs();
+    buildTable();
   }
 
-  function makeSelector($container, cb) {
-    return $container.delegate('a', 'click', cb);
+  function buildTable() {
+    setTimeout(function() {
+      timingTableDom.innerHTML += TimingTableHTML;
+    }, 0);
   }
 
-  function showPrefs() {
-    timings = Timings;
-    selectedArea = "";
-
-    for (var pref in timings) {
-      $prefSelector.append("<li><a href='javascript:void(0);'>" + pref + "</a></li>");
-    }
-
-    $prefs.show(); $towns.hide(); $cities.hide(); $result.hide();
-  }
-
-  function showCities() {
-    var pref = $(this).text();
-
-    timings = timings[pref];
-    selectedArea = pref;
-    $citySelector.find("li").remove();
-    for (var city in timings) {
-      $citySelector.append("<li><a href='javascript:void(0)'>" + city + "</a></li>");
-    }
-    $prefs.hide(); $towns.hide(); $cities.show(); $result.hide();
-  }
-
-  function showTowns() {
-    var city = $(this).text();
-
-    timings = timings[city];
-    selectedArea += city;
-    $townSelector.find("li").remove();
-    for (var town in timings) {
-      $townSelector.append("<li><a href='javascript:void(0)'>" + town + "</a></li>");
-    }
-    $prefs.hide(); $towns.show(); $cities.hide(); $result.hide();
-  }
-
-  function showResult() {
-    var town = $(this).text();
-        group = timings[town];
-    selectedArea += town;
-    $selectedArea.text(selectedArea);
-    $group.text(group);
-    $slot.text(Slot[group]);
-    $prefs.hide(); $towns.hide(); $cities.hide(); $result.show();
+  function filterRow() {
+    var query = $(this).serializeArray()[0].value,
+        $timingTableRows = $timingTable.find("tr:has(td)");
+    $timingTableRows.each(function() {
+      var $this = $(this);
+      if ($this.find("td:first").text().indexOf(query) == -1) {
+        this.className = "hidden";
+      } else {
+        this.className = "show";
+      }
+    });
+    return false;
   }
 
   init();
