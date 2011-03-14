@@ -50,7 +50,7 @@ jQuery(function($) {
   }
 
   function filterRow() {
-    var query = $(this).serializeArray()[0].value;
+    var query = $(this).serializeArray()[0].value.replace(/\s+/, "");
     found = Timings.filter(townLike(query));
     initPagination();
     return false;
