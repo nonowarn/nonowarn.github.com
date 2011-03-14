@@ -34,7 +34,7 @@ jQuery(function($) {
     return '<tr class="timing"><td>'
       + timing.town
       + '</td><td>'
-      + Slot[timing.group]
+      + timing.groups.map(timeString).join(",")
       + '</td></tr>';
   }
 
@@ -60,6 +60,10 @@ jQuery(function($) {
     return function(timing) {
       return timing.town.indexOf(query) !== -1;
     }
+  }
+
+  function timeString(group) {
+    return Slot[group];
   }
 
   init();

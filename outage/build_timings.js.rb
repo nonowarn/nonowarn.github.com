@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 require 'json'
 
-timings = []
+town2groups = Hash.new { |h,k| h[k] = [] }
 IO.readlines("timings.csv").each do |line|
   pref, city, town, group = line.chomp.split(/,/)
-  timings << { town: (pref + city + town).gsub(/\s+/, ""), group: group.to_i }
+  town2groups[(pref + city + town).gsub(/\s+/, "")] << group.to_i
 end
 print 'var Timings ='
-print timings.to_json
+print town2groups.map { |t,gs| { :town => t, :groups => gs.uniq } }.to_json
