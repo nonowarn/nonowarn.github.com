@@ -1,10 +1,25 @@
 # -*- coding: utf-8 -*-
 require 'json'
 
-town2groups = Hash.new { |h,k| h[k] = [] }
+groups = Hash.new { |pref, city|
+  pref[city] = Hash.new { |city, town|
+    city[town] = Hash.new { |town, group|
+      town[group] = []
+    }
+  }
+}
+
 IO.readlines("timings.csv").each do |line|
   pref, city, town, group = line.chomp.split(/,/)
-  town2groups[(pref + city + town).gsub(/\s+/, "")] << group.to_i
+
+  [pref, city, town].map { |s| s.gsub(/\s+/, "") }
+  group = group.to_i
+
+  gs = groups[pref][city][town]
+  gs << group unless gs.include?(group)
 end
-print 'var Timings ='
-print town2groups.map { |t,gs| { :town => t, :groups => gs.uniq } }.to_json
+
+File.open('timings.js', 'w') { |f|
+  f.print 'var AllTimings ='
+  f.print groups.to_json
+}

@@ -8,12 +8,14 @@ jQuery(function($) {
   },
       itemsPerPage = 20;
 
-  var found = Timings;
+  var Timings = flatten(AllTimings);
 
   var $timingTable = $("table#timings tbody"),
       timingTableDom = $timingTable.get(0),
       $search = $("#search").submit(filterRow),
       $pagination = $("#pagination")
+
+  var found = Timings;
 
   function init() {
     initPagination();
@@ -47,6 +49,21 @@ jQuery(function($) {
       prev_text: "さっきの結果に戻る"
     });
     $("#pagination").trigger('setPage', [0]);
+  }
+
+  function flatten(timings) {
+    var r = [];
+
+    for (var pref in timings) {
+      for (var city in timings[pref]) {
+        for (var town in timings[pref][city]) {
+          var groups = timings[pref][city][town];
+          r.push({town: pref + city + town, groups: groups});
+        }
+      }
+    }
+
+    return r;
   }
 
   function filterRow() {
