@@ -1,24 +1,29 @@
 jQuery(function($) {
-  var Slot = {
+  var BaseSlot = {
     3: "06:20～10:00",
     4: "09:20～13:00",
     5: "12:20～16:00",
-    1: "15:20～17:30",
+    1: "15:20～19:00",
     2: "18:20～22:00"
   },
+      Slot = BaseSlot;
       itemsPerPage = 20;
 
-  var Timings = flatten(AllTimings);
+  var Timings = flatten(AllTimings),
+      DateFormat = "yy/mm/dd";
 
   var $timingTable = $("table#timings tbody"),
       timingTableDom = $timingTable.get(0),
       $search = $("#search").submit(filterRow),
-      $pagination = $("#pagination")
+      $pagination = $("#pagination"),
+      $date = $("#date");
 
   var found = Timings;
 
   function init() {
+    initSlot();
     initPagination();
+    initDatepicker();
   }
 
   function updateTimings(pageNumber) {
@@ -51,6 +56,44 @@ jQuery(function($) {
     $("#pagination").trigger('setPage', [0]);
   }
 
+  function initDatepicker() {
+    $date
+      .datepicker()
+      .val($.datepicker.formatDate(DateFormat, new Date))
+      .change(updateGroup);
+  }
+
+  function initSlot() {
+    Slot = slotAt(new Date);
+    console.log(Slot);
+  }
+
+  function slotAt(date) {
+    var baseDate = $.datepicker.parseDate(DateFormat, "2011/03/15"),
+        difference = dateDiff(date, baseDate),
+        numGroup = 5,
+        newSlot = {};
+
+    for (var i in BaseSlot) {
+      var newI = (Number(i) + difference) % numGroup || 5;
+      newSlot[newI] = BaseSlot[i];
+    }
+
+    return newSlot;
+  }
+
+  function updateGroup() {
+    var $this = $(this),
+        thisDate = $.datepicker.parseDate(DateFormat, $this.val());
+    console.log(Slot)
+    Slot = slotAt(thisDate);
+    initPagination();
+  }
+
+
+  function dateDiff(lhs, rhs) {
+    return Math.floor((lhs.getTime() - rhs.getTime()) / (1000*60*60*24));
+  }
   function flatten(timings) {
     var r = [];
 

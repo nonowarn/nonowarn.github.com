@@ -3,6 +3,7 @@
   <head>
     <title>停電時間帯検索 (非公式)</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="stylesheets/jquery.ui.all.css" type="text/css" media="screen" />
     <style type="text/css" media="screen">
       .hidden {
         display: none;
@@ -25,6 +26,7 @@
         font-weight: bold;
         color: #333;
       }
+
     </style>
   </head>
   <body>
@@ -37,6 +39,10 @@
     <p>
       正確な情報については<a href="http://www.tepco.co.jp">http://www.tepco.co.jp</a>を参照してください。もし何かあれば、nonowarn at gmail dot com までお願いします。
     </p>
+
+    <div>
+      日付: <input type="text" id="date"></input>
+    </div>
 
     <form id="search">
       <label for="q">地区名の一部 (例: 水戸市千波町)</label>
@@ -54,6 +60,8 @@
     <div id="pagination"></div>
 
     <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.8.10.custom.min.js"></script>
+    <script type="text/javascript" src="jquery.ui.datepicker-ja.js"></script>
     <script type="text/javascript" src="jquery.pagination.js"></script>
     <script type="text/javascript" src="timings.js" charset="UTF-8"></script>
     <script type="text/javascript" src="application.js"></script>
