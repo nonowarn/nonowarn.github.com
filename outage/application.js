@@ -65,7 +65,6 @@ jQuery(function($) {
 
   function initSlot() {
     Slot = slotAt(new Date);
-    console.log(Slot);
   }
 
   function slotAt(date) {
@@ -85,7 +84,6 @@ jQuery(function($) {
   function updateGroup() {
     var $this = $(this),
         thisDate = $.datepicker.parseDate(DateFormat, $this.val());
-    console.log(Slot)
     Slot = slotAt(thisDate);
     initPagination();
   }
