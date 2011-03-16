@@ -1,0 +1,37 @@
+# -*- mode: ruby -*-
+require 'json'
+
+task 'update_timingsjs' do
+  files = %w(chiba gunma ibaraki kanagawa numazu saitama tochigi tokyo yamanashi)
+  sh "wget http://www.tepco.co.jp/images/{#{files.join(",")}}.pdf"
+
+  groups = Hash.new { |pref, city|
+    pref[city] = Hash.new { |city, town|
+      city[town] = Hash.new { |town, group|
+        town[group] = []
+      }
+    }
+  }
+
+  files.each do |f|
+    IO.popen "pdftotext -enc UTF-8 -layout #{f}.pdf -" do |text|
+      text.readlines.each do |l|
+        l.chomp!
+        if l =~ /^\S{3,4}\s/ # TODO: clarify regex
+          pref, city, town, group = l.split(/\s+/)
+          [pref, city, town].each { |s| s.gsub!(/\s+/, "") }
+          group = group.to_i
+          gs = groups[pref][city][town]
+          gs << group unless gs.include?(group)
+        end
+      end
+    end
+  end
+
+  File.open('timings.js', 'w') { |f|
+    f.print 'var AllTimings ='
+    f.print groups.to_json
+  }
+
+  sh "rm *.pdf"
+end
