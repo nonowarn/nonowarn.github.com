@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 require 'json'
 
-task 'update_timingsjs' do
+task 'timings.js' do
   files = %w(chiba gunma ibaraki kanagawa numazu saitama tochigi tokyo yamanashi)
   sh "wget http://www.tepco.co.jp/images/{#{files.join(",")}}.pdf"
 
