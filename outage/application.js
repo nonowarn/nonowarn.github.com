@@ -8,11 +8,19 @@ jQuery(function($) {
         1: "15:20～19:00",
         2: "18:20～22:00"
       },
+      BasePeekSlot = {
+        3: "13:50〜17:30",
+        4: "16:50〜20:30",
+        5: null,
+        1: null,
+        2: null
+      },
       NumGroup = 5,
       BaseDate = $.datepicker.parseDate(DateFormat, "2011/03/15");
 
   var currentTimings = flatten(AllTimings),
-      currentSlot = BaseSlot;
+      currentSlot = BaseSlot,
+      currentPeekSlot = BasePeekSlot;
 
   var $timingTable = $("table#timings tbody"),
       timingTableDom = $timingTable.get(0),
@@ -71,6 +79,8 @@ jQuery(function($) {
       + timing.town
       + '</td><td>'
       + timing.groups.map(timeString).join(",")
+      + '</td><td>'
+      + timing.groups.map(peekTimeString).filter(notNull).join(",")
       + '</td></tr>';
   }
 
@@ -78,8 +88,17 @@ jQuery(function($) {
     return currentSlot[group];
   }
 
+  function peekTimeString(group) {
+    return currentPeekSlot[group];
+  }
+
+  function notNull(obj) {
+    return null !== obj
+  }
+
   function updateSlot(date) {
-    currentSlot = slotAt(date);
+    currentSlot = slotAt(BaseSlot, date);
+    currentPeekSlot = slotAt(BasePeekSlot, date);
   }
 
   function updateGroup() {
@@ -89,13 +108,13 @@ jQuery(function($) {
     refreshPage();
   }
 
-  function slotAt(date) {
+  function slotAt(base, date) {
     var difference = dateDiff(date, BaseDate),
         newSlot = {};
 
-    for (var i in BaseSlot) {
+    for (var i in base) {
       var newI = (Number(i) + difference) % NumGroup || 5;
-      newSlot[newI] = BaseSlot[i];
+      newSlot[newI] = base[i];
     }
 
     return newSlot;
