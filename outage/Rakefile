@@ -17,6 +17,7 @@ task 'timings.js' do
     IO.popen "pdftotext -enc UTF-8 -layout #{f}.pdf -" do |text|
       text.readlines.each do |l|
         l.chomp!
+        l.strip!
         if l =~ /^\S{3,4}\s/ # TODO: clarify regex
           pref, city, town, group = l.split(/\s+/)
           [pref, city, town].each { |s| s.gsub!(/\s+/, "") }
