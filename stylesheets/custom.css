@@ -1,0 +1,36 @@
+h1 {
+  margin: 10px 0;
+}
+
+div.top h1 {
+  padding-left: 80px;
+  font-size: 50px;
+  height: 60px;
+  background-image: url(http://ja.gravatar.com/userimage/6661821/5308c0f910e84ca9cea2d152ca0cfffa.png?size=60);
+  background-repeat: no-repeat;
+}
+
+div.top h2 {
+  font-size: 30px;
+}
+
+div.top p {
+  font-size: 15px;
+  line-height: 0.8;
+}
+
+#projects li, #activities li {
+  list-style-type: none;
+}
+
+div.top li {
+  font-size: 20px;
+}
+
+div.top ul {
+  padding-left: 0;
+}
+
+ul.description li {
+  font-size: 16px !important;
+}
