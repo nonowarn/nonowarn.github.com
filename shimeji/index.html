@@ -25,6 +25,10 @@
         margin-left: 40px;
       }
 
+      div.tweet-container {
+        margin-left: 40px;
+      }
+
       div.screen-shots img {
         vertical-align: top;
         margin: 0 10px;
@@ -52,6 +56,43 @@
         <p>
           <a class="download" href="http://bit.ly/pBnsI8">Download</a>
         </p>
+
+        <div class="tweet-container">
+          <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+          <script>
+              new TWTR.Widget({
+                version: 2,
+                type: 'search',
+                search: 'しめじ mac',
+                interval: 6000,
+                title: 'Mac 版しめじ',
+                subject: '(・・)',
+                width: 250,
+                height: 300,
+                theme: {
+                  shell: {
+                    background: '#ffffff',
+                    color: '#000000'
+                  },
+                  tweets: {
+                    background: '#ffffff',
+                    color: '#000000',
+                    links: '#000000'
+                  }
+                },
+                features: {
+                  scrollbar: false,
+                  loop: true,
+                  live: true,
+                  hashtags: true,
+                  timestamp: true,
+                  avatars: true,
+                  toptweets: true,
+                  behavior: 'default'
+                }
+              }).render().start();
+          </script>
+        </div>
       </div>
 
       <div class="span-12 last">
