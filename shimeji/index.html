@@ -13,7 +13,7 @@
         padding-top: 20px;
       }
       
-      h1, h2, h3, h4, h5, h6, b, strong, p.download {
+      h1, h2, h3, h4, h5, h6, b, strong, a.download {
         font-family: "Lucida Grande", "AquaKana", sans-serif;
       }
 
@@ -23,7 +23,6 @@
 
       h1 {
         font-size: 50px;
-        margin-left: 35px;
       }
 
       div.tweet-button {
@@ -41,11 +40,31 @@
       }
 
       a.download {
-        color: transparent;
-        display: block;
-        width: 256px;
-        height: 256px;
-        background-image: url("./shimeji-download.png");
+        font-size: 48px;
+        text-decoration: none;
+        color: inherit;
+        display: inline-block;
+        height: 70px;
+        padding-right: 10px;
+        padding-left: 1px;
+        background-position: 3px 3px;
+        background-repeat: no-repeat;
+        background: #f0f0f0;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        background: -webkit-linear-gradient(top, #F7F7F7, #E4E4E4);
+        background: -moz-linear-gradient(top, #F7F7F7, #E4E4E4);
+        background: -ms-linear-gradient(top, #F7F7F7, #E4E4E4);
+        background: -o-linear-gradient(top, #F7F7F7, #E4E4E4);
+        border: solid 1px rgb(206, 227, 240);
+      }
+
+      a.download img {
+        float: left;
+        padding-top: 4px;
       }
 
     </style>
@@ -56,7 +75,10 @@
         <h1>Shimeji for Mac</h1>
 
         <p>
-          <a class="download" href="http://bit.ly/pBnsI8">Download</a>
+          <a class="download" href="http://bit.ly/pBnsI8">
+            <img src="shimeji-download.png" />
+            Download
+          </a>
         </p>
 
       </div>
