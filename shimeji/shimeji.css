@@ -1,0 +1,67 @@
+.container {
+  padding-top: 20px;
+}
+      
+h1, h2, h3, h4, h5, h6, b, strong, a.download {
+  font-family: "Lucida Grande", "AquaKana", sans-serif;
+}
+
+p, li {
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+div.tweet-button {
+  float: right;
+  margin-top: 8px;
+}
+
+div.screen-shots img {
+  vertical-align: top;
+  margin: 0 10px;
+}
+
+div.screen-shots {
+  margin-bottom: 14px;
+}
+
+a.download {
+  font-size: 48px;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  height: 70px;
+  padding-right: 10px;
+  padding-left: 1px;
+  background-position: 3px 3px;
+  background-repeat: no-repeat;
+  background: #f0f0f0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: -webkit-linear-gradient(top, #F7F7F7, #E4E4E4);
+  background: -moz-linear-gradient(top, #F7F7F7, #E4E4E4);
+  background: -ms-linear-gradient(top, #F7F7F7, #E4E4E4);
+  background: -o-linear-gradient(top, #F7F7F7, #E4E4E4);
+  border: solid 1px rgb(206, 227, 240);
+}
+
+.screen-shot {
+  float: left;
+  margin: 0 10px 10px;
+}
+
+.screen-shot-window {
+  margin-left: -30px
+}
+
+a.download img {
+  float: left;
+  padding-top: 4px;
+}
+
