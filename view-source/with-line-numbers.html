@@ -5,12 +5,14 @@
     <title>View Source Bookmarklet</title>
   </head>
   <body>
-    <h1>View Source</h1>
+    <h1>View Source (with line numbers)</h1>
     <a href="javascript:(function(w,h,s){w.document.write('<link rel=stylesheet href=http://nonowarn.jp/view-source/github.css><table><tr><td><pre>'+h.split(/\n/).map(function(_,i){return i+1;}).join('\n')+'</pre></td><td><pre><code data-language=html>'+h.replace(/</g,'&amp;lt;')+'</code></pre></td></tr></table><script src=http://nonowarn.jp/view-source/rainbow-custom.min.js></script><script>Rainbow.color()</script>')}(window.open('about:blank'),document.documentElement.outerHTML))">The bookmarklet</a>
     <br />
     <textarea>javascript:(function(w,h,s){w.document.write('&lt;link rel=stylesheet href=http://nonowarn.jp/view-source/github.css>&lt;table>&lt;tr>&lt;td>&lt;pre>'+h.split(/\n/).map(function(_,i){return i+1;}).join('\n')+'&lt;/pre>&lt;/td>&lt;td>&lt;pre>&lt;code data-language=html>'+h.replace(/&lt;/g,'&amp;lt;')+'&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>&lt;script src=http://nonowarn.jp/view-source/rainbow-custom.min.js>&lt;/script>&lt;script>Rainbow.color()&lt;/script>')}(window.open('about:blank'),document.documentElement.outerHTML))</textarea>
 
     <p>Syntax highlighting is done in your browser. This bookmarklet is powered by <a href="http://craig.is/making/rainbows">Rainbow.js</a></p>
+
+    <p>And thanks for suggestion, <a href="http://forrst.com/posts/View_source_bookmarklet_without_server_side_high-VlF#comment-571847">sunnysingh!</a></p>
 
     <script type="text/javascript">
 
