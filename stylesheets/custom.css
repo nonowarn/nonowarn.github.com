@@ -11,6 +11,11 @@ div.top h1 {
 }
 
 div.top h2 {
+  font-size: 48px;
+  margin: 0 0 6px;
+}
+
+div.top h3 {
   font-size: 30px;
 }
 
@@ -23,14 +28,31 @@ div.top p {
   list-style-type: none;
 }
 
+#projects img {
+  width: 16px;
+  height: 16px;
+  margin-right: 12px;
+  float: right;
+}
+
 div.top li {
   font-size: 20px;
 }
 
-div.top ul {
+div.top ul, div.top ul li ul {
   padding-left: 0;
+  padding-right: 0;
 }
 
-ul.description li {
+.description li {
   font-size: 16px !important;
+  display: inline-block;
+}
+
+li.project-name {
+  font-weight: bold;
+}
+
+li.description {
+  margin-bottom: 24px;
 }
