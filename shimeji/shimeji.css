@@ -51,6 +51,17 @@ a.download {
   border: solid 1px rgb(206, 227, 240);
 }
 
+a.try-tuned {
+  font-size: 36px;
+  height: auto;
+}
+
+span.or {
+  display: block;
+  font-size: 24px;
+  margin: 12px 0;
+}
+
 .screen-shot {
   float: left;
   margin: 0 10px 10px;
