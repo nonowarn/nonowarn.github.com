@@ -1,0 +1,95 @@
+body {
+    background: rgb(8, 8, 41);
+    color: rgb(150, 240, 218);
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 8px;
+}
+
+body > * {
+    width: 420px;
+    margin: 20px auto;
+    display: block;
+}
+
+.title {
+    margin-top: 90px;
+    font-size: 84px;
+    line-height: 72px;
+}
+
+.input-field, #target {
+    overflow: hidden;
+    background: rgb(7, 31, 5);
+    color: rgb(149, 233, 149);
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 68px;
+}
+
+.input-field > * {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.input-field input {
+    border: none;
+    width: 100%;
+}
+
+.blocks {
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.blocks div, .blocks a {
+    display: inline-block;
+}
+
+.retry {
+    color: inherit;
+}
+
+.tweet-button {
+    position: relative;
+    top: 5px;
+}
+
+#menu {
+    position: relative;
+    left: -9999px;
+}
+
+#menu.visible {
+    left: 0px;
+}
+
+#result {
+    opacity: 0.3;
+
+  -webkit-transform: rotateY(-90deg);  -webkit-transform-style: preserve-3d;
+     -moz-transform: rotateY(-90deg);     -moz-transform-style: preserve-3d;
+      -ms-transform: rotateY(-90deg);      -ms-transform-style: preserve-3d;
+          transform: rotateY(-90deg);          transform-style: preserve-3d;    
+
+  -webkit-transform-origin: left;
+     -moz-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+
+  -webkit-transition: all 0.4s ease-out;
+     -moz-transition: all 0.4s ease-out;
+       -o-transition: all 0.4s ease-out;
+          transition: all 0.4s ease-out;
+}
+
+#result.visible {
+    opacity: 1;
+
+  -webkit-transform: rotateY(0deg);  -webkit-transform-style: preserve-3d;
+     -moz-transform: rotateY(0deg);     -moz-transform-style: preserve-3d;
+      -ms-transform: rotateY(0deg);      -ms-transform-style: preserve-3d;
+          transform: rotateY(0deg);          transform-style: preserve-3d;    
+
+}
+
