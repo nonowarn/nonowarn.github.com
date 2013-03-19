@@ -11,6 +11,10 @@ body > * {
     display: block;
 }
 
+body > script {
+    display: none;
+}
+
 .title {
     margin-top: 90px;
     font-size: 84px;
