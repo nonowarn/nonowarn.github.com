@@ -4,6 +4,7 @@
   var target = doc.getElementById("target"),
       result = doc.getElementById("result"),
       menu = doc.getElementById("menu"),
+      tip = doc.getElementById("tip"),
       startTime = null,
       gameEnded = false;
 
@@ -16,6 +17,16 @@
         url = encodeURIComponent("http://nonowarn.jp/functionator");
     return "https://platform.twitter.com/widgets/tweet_button.html?count=none&text="
       + text + "&url=" + url + "&size=l";
+  }
+
+  function retryWith(clear) {
+    result.className = "";
+    menu.className = "";
+    tip.className = "";
+    startTime = null;
+    gameEnded = false;
+    clear();
+    return false;
   }
 
   function clearTarget() {
@@ -31,6 +42,12 @@
       }, 30);
     };
     removeChar();
+  }
+
+  function clearTargetImmediately() {
+    target.value = "";
+    target.disabled = false;
+    target.focus();
   }
 
   target.addEventListener("keydown", function (e) {
@@ -53,19 +70,25 @@
 
       var tweetButtonFrame = menu.querySelector(".tweet-button");
       tweetButtonFrame.onload = function () {
-        setTimeout(function () { menu.className = "visible"; }, 500);
+        setTimeout(function () {
+          menu.className = "visible";
+          tip.className = "visible";
+        }, 500);
       };
       tweetButtonFrame.src = tweetScore(formattedRecord);
     }
   }, false);
 
   retry.addEventListener("click", function (e) {
-    result.className = "";
-    menu.className = "";
-    startTime = null;
-    gameEnded = false;
-    clearTarget();
-    return false;
+    return retryWith(clearTarget);
+  }, false);
+
+  // On game was ended and pressed 'r' w/o modifiers, restart game immediately
+  win.addEventListener("keydown", function (e) {
+    if (gameEnded && e.which === 82 && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+      retryWith(clearTargetImmediately);
+    }
   }, false);
 
 }(this, document));
