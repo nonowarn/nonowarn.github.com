@@ -1,3 +1,9 @@
+body {
+    background-image: url(shime1.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+}
+
 .container {
   padding-top: 20px;
 }
