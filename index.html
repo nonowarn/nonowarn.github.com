@@ -1,74 +1,52 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>nonowarn.jp</title>
-    <link rel="stylesheet" href="./stylesheets/screen.css" type="text/css" media="screen, projection">
-    <link rel="stylesheet" href="./stylesheets/print.css" type="text/css" media="print">
-    <!--[if lt IE 8]><link rel="stylesheet" href="./stylesheets/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <link rel="stylesheet" href="./stylesheets/custom.css" type="text/css" media="screen, projection">
+
+    <link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .fill-screen {
+        position: relative;
+        height: 100vh;
+      }
+
+      .abs-center {
+        position: absolute;
+        margin: auto;
+        top: 0; left: 0; right: 0; bottom: 0;
+      }
+
+      .contents {
+        width: 1000px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+
+        word-spacing: 6px;
+        color: #ccc;
+        font-family: 'Swanky and Moo Moo', cursive;
+        font-size: 120px;
+        text-transform: uppercase;
+      }
+
+    </style>
+
   </head>
   <body>
-    <div class="container top">
-      <h1>nonowarn.jp</h1>
-
-      <div id="projects">
-        <div class="span-8">
-          <h2>Projects</h2>
-          <h3>I'm a programmer, so I have some Projects</h3>
-        </div>
-
-        <ul class="span-16 last">
-
-          <li class="project-name"><img src="images/pixiven.png" /><a href="http://nonowarn.jp/Pixiven">Pixiven</a></li>
-          <li class="description">
-            <ul>
-              <li>A chrome application to make the <a href="http://www.pixiv.net">Pixiv</a> better and saner, By providing simple interfaces.</li>
-              <li>Simple interface is no interface. Redundant character information is eliminated as much as possible.</li>
-              <li>Simple interface is the interface you know. No new UI concept is introduced.</li>
-              <li>You will not be interrupted with any ads or other informations, while Being absorbed in the arts on Pixiv.</li>
-            </ul>
-          </li>
-          
-          <li class="project-name"><img src="images/shimeji.png" /><a href="http://nonowarn.jp/shimeji">Shimeji for Mac</a></li>
-          <li class="description">
-            <ul>
-              <li>Porting an desktop mascot, <a href="http://www.group-finity.com/Shimeji/">Shimeji.</a></li>
-              <li>It walks on your desktop, hangs on your window.</li>
-              <li>It was written in Java. Original code was beautifully separated platform-dependent code. So I wrote the Mac version of that part.</li>
-              <li>I add the code for Mac which does detecting/moving windows. I use <a href="http://developer.apple.com/library/mac/#documentation/Accessibility/Reference/AccessibilityCarbonRef/Reference/reference.html">Accessibility API</a>, through <a href="https://github.com/twall/jna">JNA</a>.</li>
-            </ul>
-          </li>
-
-          <li class="project-name"><a href="http://hackage.haskell.org/package/has">Has</a></li>
-          <li class="description">
-            <ul>
-              <li>Library for Entity Based Record in Haskell.</li>
-              <li>I think their records are similar to Ruby's Struct class.</li>
-              <li>It can be used to do <a href="http://chrisdone.com/posts/2010-11-22-duck-typing-in-haskell.html">duck typing in Haskell</a>.</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
-      <div id="activities">
-        <div class="span-8">
-          <h2>Other Activities</h2>
-        </div>
-        <ul class="span-16 last">
-          <li><a href="http://blog.nonowarn.jp">Blog</a></li>
-          <li><a href="https://github.com/nonowarn">Code</a></li>
-          <li><a href="http://facebook.com/nonowarn">Facebook</a></li>
-          <li><a href="http://forrst.com/people/nonowarn">Forrst</a></li>
-        </ul>
-      </div>
-
-      <div id="footer" class="span-24 last">
-        &copy; nonowarn
+    <div class="fill-screen">
+      <div class="abs-center contents">
+        supercar
       </div>
     </div>
 
     <script type="text/javascript">
-
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-25276002-1']);
       _gaq.push(['_trackPageview']);
@@ -78,7 +56,6 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-
     </script>
   </body>
 </html>
