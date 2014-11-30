@@ -1,50 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>nonowarn.jp</title>
-
-    <link href='http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo' rel='stylesheet' type='text/css'>
-
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      .fill-screen {
-        position: relative;
-        height: 100vh;
-      }
-
-      .abs-center {
-        position: absolute;
-        margin: auto;
-        top: 0; left: 0; right: 0; bottom: 0;
-      }
-
-      .contents {
-        width: 1000px;
-        height: 100px;
-        text-align: center;
-        line-height: 100px;
-
-        word-spacing: 6px;
-        color: #ccc;
-        font-family: 'Swanky and Moo Moo', cursive;
-        font-size: 120px;
-        text-transform: uppercase;
-      }
-
-    </style>
-
+    <link rel="stylesheet" href="/scanview/css/main.css">
   </head>
   <body>
-    <div class="fill-screen">
-      <div class="abs-center contents">
-        supercar
+    <div class="scans center">
+
+      <div class="se se3"
+        id="se3"
+        data-frames="/scanview/frames/se3-256.png"
+        data-frame-size="173"
+        data-frame-count="51">
       </div>
+
+      <div class="se se5"
+        id="se5"
+        data-frames="/scanview/frames/se5-256.png"
+        data-frame-size="173"
+        data-frame-count="45"></div>
     </div>
+
+    <script src="/scanview/js/scanview.js"></script>
+    <script src="/scanview/js/main.js"></script>
 
     <script type="text/javascript">
       var _gaq = _gaq || [];

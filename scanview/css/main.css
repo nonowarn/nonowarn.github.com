@@ -1,0 +1,79 @@
+.center {
+    position: absolute;
+    margin: auto;
+    top: 0; bottom: 0; right: 0; left: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.se {
+    width: 173px;
+    height: 173px;
+    display: block;
+    position: absolute;
+
+    -webkit-transition: -webkit-transform 1s;
+
+            transition: transform 1s;
+
+     -webkit-transform-style: preserve-3d;
+
+             transform-style: preserve-3d;
+     -webkit-transform-style: preserve-3d;
+             transform-style: preserve-3d;
+}
+
+.se > div {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform 1s;
+            transition: transform 1s;
+}
+
+.se3 {
+    left: 61px;
+}
+
+.se3.rotate {
+    -webkit-transform:
+      rotateX(-30deg)
+      perspective(1000px)
+      rotateY(-25deg)
+      translateZ(100px)
+      scale(0.8);
+    transform:
+      rotateX(-30deg)
+      perspective(1000px)
+      rotateY(-25deg)
+      translateZ(100px)
+      scale(0.8);
+}
+
+.se5 {
+    right: -47px;
+}
+
+.se5.rotate {
+    -webkit-transform:
+      rotateX(-30deg)
+      rotateY(-50deg)
+      rotateX(90deg)
+      perspective(1200px)
+      scale(0.9);
+    transform:
+      rotateX(-30deg)
+      rotateY(-50deg)
+      rotateX(90deg)
+      perspective(1200px)
+      scale(0.9);
+}
+
+.scans {
+    height: 173px;
+    width: 800px;
+    position: absolute;
+    margin: auto;
+    top: -25vh; bottom: 0; right: 0; left: 0;
+}
